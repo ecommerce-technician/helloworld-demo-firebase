@@ -1,11 +1,12 @@
 # Hello World V0
 
 ## Starting
-`git clone https://github.com/ecommerce-technician/helloworld-demo`
-`cd helloworld-demo`
-`npm install`
-`bower install`
-`node helloworld`
+```git clone https://github.com/ecommerce-technician/helloworld-demo
+cd helloworld-demo
+npm install
+bower install
+node helloworld
+```
 
 ### localhost:7777
 
