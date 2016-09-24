@@ -5,8 +5,7 @@
 cd helloworld-demo
 npm install
 bower install
-node helloworld
-```
+node helloworld```
 
 ### localhost:7777
 
