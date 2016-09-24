@@ -9,7 +9,7 @@ bower install
 node helloworld
 ```
 
-### localhost:7777
+### [starts on localhost:7777](localhost:7777)
 
 ## Required Pages
  - ./login
