@@ -67,11 +67,11 @@ angular.module('NodeTechApp', ['ui.router', 'ngCookies','ngResource','ngMessages
 
         // Initialize Firebase
         var config = {
-            apiKey: "AIzaSyDt_NewyNcQAy3uJElVgzwc-Z64Z0fa0uA",
-            authDomain: "bundleslang.firebaseapp.com",
-            databaseURL: "https://bundleslang.firebaseio.com",
-            storageBucket: "firebase-bundleslang.appspot.com",
-            messagingSenderId: "260891721713"
+            apiKey: "AIzaSyASKttdZvCUBKGJuHncVkJUUbW9nCGcp1U",
+            authDomain: "helloworld-99886.firebaseapp.com",
+            databaseURL: "https://helloworld-99886.firebaseio.com",
+            storageBucket: "helloworld-99886.appspot.com",
+            messagingSenderId: "530581946172"
         };
         firebase.initializeApp(config);
 
@@ -79,22 +79,22 @@ angular.module('NodeTechApp', ['ui.router', 'ngCookies','ngResource','ngMessages
 
         $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
             var user = firebase.auth().currentUser;
-            if(user != null){
-                console.log(user.displayName);
-                $rootScope.user = {
-                    loggedIn : true,
-                    email : user.email,
-                    name : user.displayName,
-                    uid : user.uid
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    $rootScope.user = {
+                        loggedIn : true,
+                        email : user.email,
+                        uid : user.uid
+                    }
+                } else {
+                    $rootScope.user = {
+                        loggedIn: false,
+                        email: null,
+                        name: null,
+                        uid : null
+                    }
                 }
-            } else {
-                $rootScope.user = {
-                    loggedIn: false,
-                    email: null,
-                    name: null,
-                    uid : null
-                }
-            }
+            });
 
             //console.log("stateChange: " + user);
             try {
@@ -116,6 +116,15 @@ angular.module('NodeTechApp', ['ui.router', 'ngCookies','ngResource','ngMessages
 
         $rootScope.$on('$stateChangeSuccess', function (toState, toParams, fromState, fromParams) {
             //console.log('state change success',toState);
+            if ($rootScope.user.uid){
+                var userRef = firebase.database().ref('users/' + $rootScope.user.uid);
+                userRef.once('value').then(function(snapshot) {
+                    if(snapshot.val().admin == true){
+                        $rootScope.user.admin = true;
+                        $rootScope.$apply();
+                    }
+                });
+            }
         });
 
         $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {

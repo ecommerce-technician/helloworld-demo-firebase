@@ -9,18 +9,18 @@ angular.module('NodeTechApp')
 
     $scope.signIn = function () {
         // login with Email / Password
-        auth.$signInWithEmailAndPassword($scope.email, $scope.password).then(function (firebaseUser) {
-            $scope.email = '';
-            $scope.password = '';
+        auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function (firebaseUser) {
+            $scope.user.email = '';
+            $scope.user.password = '';
             if(firebaseUser.uid) {
-                $state.go('root.query');
+                $state.go('root.confirmation');
             }
         }).catch(function (error) {
             alert("Authentication failed:", error);
         });
     }
 
-    $scope.address = {
+    $scope.user.address = {
         streetNumber: null,
         street: null,
         city: null,
@@ -28,26 +28,30 @@ angular.module('NodeTechApp')
         zip: null
     }
 
+    $scope.admin = function () {
+        $state.go('root.admin');
+    }
+
     $scope.signUp = function () {
         // login with Email / Password
         auth.$createUserWithEmailAndPassword($scope.email, $scope.password).then(function (firebaseUser) {
-            $scope.email = '';
-            $scope.password = '';
+            $scope.user.email = '';
+            $scope.user.password = '';
             if(firebaseUser.uid) {
                 var userRef = database.ref('users/'+ firebaseUser.uid);
                 userRef.set({
-                    first_name: $scope.first_name,
-                    last_name: $scope.last_name,
+                    first_name: $scope.user.first_name,
+                    last_name: $scope.user.last_name,
                     email: firebaseUser.email,
                     address : {
-                        streetNumber: $scope.streetNumber,
-                        street: $scope.street,
-                        city: $scope.city,
-                        state: $scope.state,
-                        zip: $scope.zip
+                        streetNumber: $scope.user.streetNumber,
+                        street: $scope.user.street,
+                        city: $scope.user.city,
+                        state: $scope.user.state,
+                        zip: $scope.user.zip
                     }
                 }).then(function() {
-                    $state.go('root.query');
+                    $state.go('root.confirmation');
                 });
             }
         }).catch(function (error) {
@@ -59,36 +63,31 @@ angular.module('NodeTechApp')
 
     $scope.reset = function () {
         // login with Email / Password
-        auth.$sendPasswordResetEmail($scope.data.email).then(function () {
+        auth.$sendPasswordResetEmail($scope.user.email).then(function () {
             alert("reset sent!");
         }).catch(function (error) {
-            console.log(error);
             alert("reset failed:", error);
         });
     }
 
-    $scope.lat = undefined;
-    $scope.lng = undefined;
-
     $scope.$on('gmPlacesAutocomplete::placeChanged', function(){
-        console.log($scope.autocomplete.getPlace().address_components);
-        var place = $scope.autocomplete.getPlace();
+        var place = $scope.user.autocomplete.getPlace();
         var components = place.address_components;
         for (var i = 0, component; component = components[i]; i++) {
             if (component.types[0] == 'street_number') {
-                $scope.streetNumber = component['long_name'];
+                $scope.user.treetNumber = component['long_name'];
             }
             if (component.types[0] == 'route') {
-                $scope.street = component['long_name'];
+                $scope.user.street = component['long_name'];
             }
             if (component.types[0] == 'locality') {
-                $scope.city = component['long_name'];
+                $scope.user.city = component['long_name'];
             }
             if (component.types[0] == 'administrative_area_level_1') {
-                $scope.state = component['long_name'];
+                $scope.user.state = component['long_name'];
             }
-            if (component.types[0] == 'postal_code_suffix') {
-                $scope.zip = component['long_name'];
+            if (component.types[0] == 'postal_code') {
+                $scope.user.zip = component['long_name'];
             }
         }
         $scope.$apply();

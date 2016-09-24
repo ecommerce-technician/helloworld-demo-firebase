@@ -33,18 +33,19 @@ angular.module('NodeTechApp')
             },
             authenticate: false
         })
-        .state('root.login', {
-            url: '/login',
-            views: {
-                'container@': {
-                    templateUrl: 'partials/login.html',
-                    controller: 'LoginController'
-                }
-            },
-            authenticate: false
-        })
         .state('root.admin', {
             url: '/admin',
+            views: {
+                'container@': {
+                    templateUrl: 'partials/admin.html',
+                    controller: 'AdminController'
+                }
+            },
+            authenticate: true,
+            admin: true
+        })
+        .state('root.login', {
+            url: '/login',
             views: {
                 'container@': {
                     templateUrl: 'partials/login.html',
@@ -63,12 +64,12 @@ angular.module('NodeTechApp')
             },
             authenticate: false
         })
-        .state('root.query', {
-            url: '/query',
+        .state('root.confirmation', {
+            url: '/confirmation',
             views: {
                 'container@' : {
-                    templateUrl: 'partials/query.html',
-                    controller: 'QueryController'
+                    templateUrl: 'partials/confirmation.html',
+                    controller: 'ConfirmationController'
                 }
             },
             authenticate: true

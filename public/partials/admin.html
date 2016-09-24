@@ -1,0 +1,25 @@
+<div class="row" layout-padding>
+    admin! {{user.admin}}
+</div>
+<table>
+    <tr>
+        <th>first name</th>
+        <th>last name</th>
+        <th>email</th>
+        <th>house number</th>
+        <th>street</th>
+        <th>city</th>
+        <th>state</th>
+        <th>zip</th>
+    </tr>
+    <tr ng-repeat="record in users">
+        <td>{{record.first_name}}</td>
+        <td>{{record.last_name}}</td>
+        <td>{{record.email}}</td>
+        <td>{{record.address.streetNumber}}</td>
+        <td>{{record.address.street}}</td>
+        <td>{{record.address.city}}</td>
+        <td>{{record.address.state}}</td>
+        <td>{{record.address.zip}}</td>
+    </tr>
+</table>

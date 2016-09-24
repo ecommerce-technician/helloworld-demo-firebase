@@ -1,7 +1,4 @@
 /**
- * Created by alex on 6/17/16.
- */
-/**
  * Created by alex on 9/12/15.
  */
 var gulp = require('gulp');
@@ -17,8 +14,7 @@ var order = require("gulp-order");
 /*compile sass and css*/
 gulp.task('sass', function () {
     return gulp.src([
-        './www/lib/angular-material/angular-material.scss',
-        './www/lib/ng-autocomplete/angucomplete.css',
+        './bower_components/angular-material/angular-material.scss',
         './assets/css/*.css'
         ])
         .pipe(sass())
@@ -33,18 +29,17 @@ gulp.task('sass', function () {
 /*concatenate js*/
 gulp.task('scripts', function() {
     gulp.src([
-            './www/lib/angular/angular.js',
-            './www/lib/angular-ui-router/release/angular-ui-router.js',
-            './www/lib/angular-resource/angular-resource.js',
-            './www/lib/angular-material/angular-material.js',
-            './www/lib/angular-animate/angular-animate.js',
-            './www/lib/angular-aria/angular-aria.js',
-            './www/lib/angular-messages/angular-messages.js',
-            './www/lib/angular-cookies/angular-cookies.js',
-            './www/lib/ng-autocomplete/angucomplete.js',
-            './www/lib/angularjs-google-maps/dist/angularjs-google-maps.js',
-            './www/lib/firebase/firebase.js',
-            './www/lib/angularfire/dist/angularfire.js',
+            './bower_components/angular/angular.js',
+            './bower_components/angular-ui-router/release/angular-ui-router.js',
+            './bower_components/angular-resource/angular-resource.js',
+            './bower_components/angular-material/angular-material.js',
+            './bower_components/angular-animate/angular-animate.js',
+            './bower_components/angular-aria/angular-aria.js',
+            './bower_components/angular-messages/angular-messages.js',
+            './bower_components/angular-cookies/angular-cookies.js',
+            './bower_components/angularjs-google-maps/dist/angularjs-google-maps.js',
+            './bower_components/firebase/firebase.js',
+            './bower_components/angularfire/dist/angularfire.js',
             './assets/NodeTechApp/app.js',
             './assets/NodeTechApp/routes.js',
             './assets/NodeTechApp/services/*.js',
@@ -76,16 +71,16 @@ gulp.task('scripts', function() {
 
 gulp.task('head', function() {
     gulp.src([
-            './www/lib/angular/angular.js',
-            './www/lib/angular-ui-router/release/angular-ui-router.js',
-            './www/lib/angular-resource/angular-resource.js',
-            './www/lib/angular-material/angular-material.js',
-            './www/lib/angular-animate/angular-animate.js',
-            './www/lib/angular-aria/angular-aria.js',
-            './www/lib/angular-messages/angular-messages.js',
-            './www/lib/angular-cookies/angular-cookies.js',
-            './www/lib/firebase/firebase.js',
-            './www/lib/angularfire/dist/angularfire.js'
+            './bower_components/angular/angular.js',
+            './bower_components/angular-ui-router/release/angular-ui-router.js',
+            './bower_components/angular-resource/angular-resource.js',
+            './bower_components/angular-material/angular-material.js',
+            './bower_components/angular-animate/angular-animate.js',
+            './bower_components/angular-aria/angular-aria.js',
+            './bower_components/angular-messages/angular-messages.js',
+            './bower_components/angular-cookies/angular-cookies.js',
+            './bower_components/firebase/firebase.js',
+            './bower_components/angularfire/dist/angularfire.js'
         ])
         .pipe(order([
             'angular.js',
@@ -107,7 +102,7 @@ gulp.task('head', function() {
 
 gulp.task('foot', function() {
     gulp.src([
-            './www/lib/angularjs-google-maps/dist/angularjs-google-maps.js',
+            './bower_components/angularjs-google-maps/dist/angularjs-google-maps.js',
             './assets/NodeTechApp/app.js',
             './assets/NodeTechApp/routes.js',
             './assets/NodeTechApp/services/*.js',
@@ -122,7 +117,7 @@ gulp.task('foot', function() {
             'services/*.js',
             'controllers/root-controller.js',
             'controllers/login-controller.js',
-            'controllers/query-controller.js',
+            'controllers/confirmation-controller.js',
             'directives/**/*.js'
         ]))
         .pipe(ngAnnotate())
