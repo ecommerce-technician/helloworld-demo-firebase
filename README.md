@@ -1,4 +1,5 @@
 # Hello World V0
+This app allows a user to create an account, see a confirmation page, allows a user to request admin access, and manage users if their request for admin access is approved.
 
 ## Starting
 ```
