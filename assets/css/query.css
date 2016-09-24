@@ -1,0 +1,11 @@
+.card-media {
+    background-color: #999999;
+}
+
+.queryBox {
+    min-width: 80%;
+}
+.sourceIcon {
+    max-height: 48px;
+    width: 48px;
+}

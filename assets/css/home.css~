@@ -1,0 +1,13 @@
+
+
+.splash {
+    min-height: 62vh;
+}
+
+.infoRow {
+    min-height: 150px;
+}
+
+.queryPreview {
+    min-height: 400px;
+}

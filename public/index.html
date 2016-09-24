@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" prefix='og: http://ogp.me/ns#' ng-app='NodeTechApp'>
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <!--SEO Stuff-->
+    <meta name="description" content="Node.tech softare development & e-commerce consulting. We specialize in server & client side javascript, web apps, and apis perfect for streaming data. Contact us today for a FREE evaluation.">
+    <meta name="keywords" content="nodejs, angular, amp html, php, ecommerce, fintech">
+
+    <!--Canonical-->
+    <link rel="icon" type="image/png" href="img/fav.ico">
+    <link rel="canonical" href="http://node.tech">
+
+    <!--Graph Stuff-->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="node.tech">
+    <meta property="og:site_name" content="Node.tech | fast apps.">
+    <meta property="og:title" content="Node.tech projects list">
+    <meta property="og:image" content="http://www.node.tech/img/node-tech.png">
+    <meta property="og:description" content="Node.tech builds lightning fast, scalable apps, perfect for streaming data">
+    <meta property="og:image:width" content="600"/>
+    <meta property="og:image:height" content="330"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@developfintech">
+    <meta name="twitter:title" content="Node.tech | fast apps.">
+    <meta name="twitter:description" content="Node.tech builds lightning fast, scalable apps, perfect for streaming data @developfintech">
+    <meta name="twitter:image:src" content="http://www.node.tech/img/node-tech.png">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:100,300,400,500,700">
+    <base href="/">
+
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-animate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-aria.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-resource.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://gitcdn.link/repo/angular/bower-material/master/angular-material.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&key=AIzaSyAA8htwR_YQBNYbL4CWx8E4bc1tiJwqVxU"></script>
+</head>
+<body ng-cloak>
+<div layout="column" layout-fill>
+    <md-toolbar id="header" class="md-primary md-hue-3 md-whiteframe-z1 md-scroll-shrink" layout="start center" ui-view="header"></md-toolbar>
+    <md-content>
+        <div ui-view="container"></div>
+    </md-content>
+</div>
+    <script src='js/foot.js'></script>
+</body>
+</html>
