@@ -1,0 +1,16 @@
+.splash {
+    min-height: 62vh;
+    background: url(https://res.cloudinary.com/developfintech/image/upload/v1473523455/photo-1463310127152-33b375103141_kyj5s0.jpg) center no-repeat #607d8b;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.infoRow {
+    min-height: 150px;
+}
+
+.queryPreview {
+    min-height: 400px;
+}
