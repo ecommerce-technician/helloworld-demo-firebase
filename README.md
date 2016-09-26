@@ -59,15 +59,18 @@ node helloworld
 ### admin feature (/admin)
 
 ## Bugs
-### ToFix
+
+### Critical
  - setup reverse proxy
  - point domain / subdomain to app
  - configure / setup / deploy https / ssl / tls
  - autocomplete required needs angular filter
  - remove console.log stuff
+ 
 ### Styling
  - Header menu logic could use some work
  - Refactor auth & app alerts to ng-messages
  - Refactor table to google charts table
+ 
 ### Errors
  - Aria label warnings
