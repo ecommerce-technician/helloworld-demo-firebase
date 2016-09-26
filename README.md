@@ -55,7 +55,10 @@ node helloworld
 ## Bugs
 ### ToFix
  - autocomplete required needs angular filter
+ - remove console.log stuff
 ### Styling
  - Header menu logic could use some work
+ - Refactor auth & app alerts to ng-messages
+ - Refactor table to google charts table
 ### Errors
- - Aria label warnings here and there
+ - Aria label warnings
