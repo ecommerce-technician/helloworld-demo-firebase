@@ -44,8 +44,8 @@
 
     </div>
         <div flex class="md-display-2">
-            <md-button class="md-raised md-primary" ng-click="signIn()" ng-show="$state.includes('root.login')">Sign In</md-button>
-            <md-button class="md-raised md-primary" ng-click="signUp()" ng-show="$state.includes('root.signup')">Sign Up</md-button>
+            <md-button class="md-raised md-primary" ng-click="signIn()" ng-show="$state.includes('root.login')" ng-disabled="signInDisabled">Sign In</md-button>
+            <md-button class="md-raised md-primary" ng-click="signUp()" ng-show="$state.includes('root.signup')" ng-disabled="signUpDisabled">Sign Up</md-button>
         </div>
     <div>
         <md-button class="md-primary md-hue-2" ng-click="reset()">Reset Password</md-button>

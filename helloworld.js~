@@ -80,7 +80,7 @@ app
     });
 
 http
-    .createServer( app ).listen( 7777 )
+    .createServer( app ).listen( 3100, '104.236.23.95' )
         .on( 'error', function( error ){
             log.info( "Error: \n" + error.message );
             log.info( error.stack );

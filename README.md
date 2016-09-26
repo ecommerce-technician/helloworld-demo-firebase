@@ -1,9 +1,15 @@
 # Hello World V0
 This app allows a user to create an account, see a confirmation page, allows a user to request admin access, and manage users if their request for admin access is approved.
 
+## Development Dependencies
+```
+nodejs > 0.10
+apt-get install npm
+```
+
 ## Starting
 ```
-git clone https://github.com/ecommerce-technician/helloworld-demo
+git clone https://github.com/ecommerce-technician/helloworld-demo-firebase
 cd helloworld-demo
 npm install
 bower install
@@ -18,7 +24,8 @@ node helloworld
  - ./confirmation
  - ./admin (registered user report)
 
-### Signup View (/signup)
+## Features
+### Signup feature (/signup)
 #### Requires users submit form values
  - email
  - password
@@ -36,6 +43,28 @@ node helloworld
    - state
    - zip
   
-### login view (/login)
+### login feature (/login)
+#### Authentication toState middleware
+ - Uses firebase auth for checking firebase login state on both the client & server side
+ - Consumes User Factory service provider to check loggedin state each state change
+ - Creates token if user successfully authenticated
+ - Deletes token & user object if user logs out
 
-### confirmation view (/confirmation)
+#### express  login api endpoint
+ - ```/api/v1/user```
+ - Adds server side token check
+ - sends json with user data & roles defined in db
+
+### confirmation feature (/confirmation)
+### admin feature (/admin)
+
+## Bugs
+### ToFix
+ - autocomplete required needs angular filter
+ - remove console.log stuff
+### Styling
+ - Header menu logic could use some work
+ - Refactor auth & app alerts to ng-messages
+ - Refactor table to google charts table
+### Errors
+ - Aria label warnings
