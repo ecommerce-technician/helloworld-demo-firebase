@@ -1,7 +1,4 @@
 /**
- * Created by alex on 6/17/16.
- */
-/**
  * Created by alex on 9/12/15.
  */
 var gulp = require('gulp');
@@ -17,8 +14,7 @@ var order = require("gulp-order");
 /*compile sass and css*/
 gulp.task('sass', function () {
     return gulp.src([
-        './www/lib/angular-material/angular-material.scss',
-        './www/lib/ng-autocomplete/angucomplete.css',
+        'www/lib/angular-material/modules/scss/angular-material.scss',
         './assets/css/*.css'
         ])
         .pipe(sass())
@@ -112,7 +108,7 @@ gulp.task('foot', function() {
             './assets/NodeTechApp/routes.js',
             './assets/NodeTechApp/services/*.js',
             './assets/NodeTechApp/controllers/*.js',
-            './assets/NodeTechApp/directives/blocks/*.js',
+            './assets/NodeTechApp/directives/blocks/*.js'
 
         ])
         .pipe(order([

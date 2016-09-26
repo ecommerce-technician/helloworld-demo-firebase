@@ -1,11 +1,15 @@
-/**
- * Created by alex on 9/7/16.
- */
 angular.module('NodeTechApp')
-.factory('Auth', function($firebaseAuth){
-    var authFactory = {};
-
-    var auth = $firebaseAuth();
-
-    console.log(auth);
-})
+    .factory("Users", function ($http) {
+        usersObj = {};
+        usersObj.getUsers = function() {
+            return $http.get('/api/v1/users')
+        }
+        return usersObj;
+    })
+    .factory("User", function ($http) {
+        userObj = {};
+        userObj.getLoggedIn = function() {
+            return $http.get('/api/v1/user')
+        }
+        return userObj;
+    })

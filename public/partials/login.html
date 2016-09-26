@@ -7,30 +7,31 @@
         <div flex>
             <md-input-container>
                 <label>Email</label>
-                <input class="md-headline" type="email" ng-model="email">
+                <input class="md-headline" type="email" ng-model="email" required>
             </md-input-container>
         </div>
         <div flex>
             <md-input-container>
                 <label>Password</label>
-                <input class="md-headline" type="password" ng-model="password">
+                <input class="md-headline" type="password" ng-model="password" required>
             </md-input-container>
         </div>
         <div flex ng-show="$state.includes('root.signup')">
                 <md-input-container>
                     <label>First Name</label>
-                    <input class="md-headline" type="text" ng-model="first_name">
+                    <input class="md-headline" type="text" ng-model="first_name" required>
                 </md-input-container>
         </div>
     <div flex ng-show="$state.includes('root.signup')">
             <md-input-container>
                 <label>Last Name</label>
-                <input class="md-headline" type="text" ng-model="last_name">
+                <input class="md-headline" type="text" ng-model="last_name" required>
             </md-input-container>
     </div>
     <div flex ng-show="$state.includes('root.signup')">
         <md-input-container>
-            <input class="md-headline" type="text" gm-places-autocomplete ng-model="autocomplete" style="width: 300px;"/>
+            <label>address</label>
+            <input class="md-headline" type="text" gm-places-autocomplete ng-model="autocomplete" required>
         </md-input-container>
         <h3>Results:</h3>
         <ul>

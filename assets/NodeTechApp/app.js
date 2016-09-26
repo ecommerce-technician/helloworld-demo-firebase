@@ -62,56 +62,53 @@ angular.module('NodeTechApp', ['ui.router', 'ngCookies','ngResource','ngMessages
         $mdIconProvider
             .iconSet('device', 'img/icons/sets/device-icons.svg', 24);
     })
-    .run(function ($rootScope, $state) {
+    .run(function ($rootScope, $state, $cookies, User) {
         "use strict";
+
+        $rootScope.user = {
+            admin : false,
+            email: ""
+        };
 
         // Initialize Firebase
         var config = {
-            apiKey: "AIzaSyDt_NewyNcQAy3uJElVgzwc-Z64Z0fa0uA",
-            authDomain: "bundleslang.firebaseapp.com",
-            databaseURL: "https://bundleslang.firebaseio.com",
-            storageBucket: "firebase-bundleslang.appspot.com",
-            messagingSenderId: "260891721713"
+            apiKey: "AIzaSyASKttdZvCUBKGJuHncVkJUUbW9nCGcp1U",
+            authDomain: "helloworld-99886.firebaseapp.com",
+            databaseURL: "https://helloworld-99886.firebaseio.com",
+            storageBucket: "helloworld-99886.appspot.com",
+            messagingSenderId: "530581946172"
         };
         firebase.initializeApp(config);
 
-        $rootScope.user = {};
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                user.getToken().then(function(data) {
+                    $cookies.put('tk', data);
+                });
+            } else {
+                $rootScope.user.admin = "";
+                $cookies.remove('tk');
+            }
+        });
 
         $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-            var user = firebase.auth().currentUser;
-            if(user != null){
-                console.log(user.displayName);
-                $rootScope.user = {
-                    loggedIn : true,
-                    email : user.email,
-                    name : user.displayName,
-                    uid : user.uid
+            User.getLoggedIn().success(function (data) {
+                console.log(data);
+                $rootScope.user.email = data.email;
+                if(data.admin && data.admin == true) {
+                    $rootScope.user.admin = true;
                 }
-            } else {
-                $rootScope.user = {
-                    loggedIn: false,
-                    email: null,
-                    name: null,
-                    uid : null
-                }
-            }
-
-            //console.log("stateChange: " + user);
-            try {
-                if (toState.authenticate && user.uid) {
-                    console.log('authenticated');
-                } else if (toState.authenticate == false) {
-                    //public pages, do nothing
+                if (!toState.authenticate && !toState.admin) {
+                    console.log("public");
+                } else if (toState.authenticate && data.uid){
+                    console.log("authenticated");
+                } else if (toState.admin && data.uid && data.admin){
+                    console.log("admin: " + data.admin);
                 } else {
-                    console.log('public');
                     $state.go("root.login");
-                    event.preventDefault();
+                    console.log("investigate");
                 }
-            } catch (e){
-                $state.go("root.login");
-                event.preventDefault();
-                console.log('erroneaous');
-            }
+            });
         });
 
         $rootScope.$on('$stateChangeSuccess', function (toState, toParams, fromState, fromParams) {

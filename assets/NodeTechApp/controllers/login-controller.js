@@ -13,7 +13,7 @@ angular.module('NodeTechApp')
             $scope.email = '';
             $scope.password = '';
             if(firebaseUser.uid) {
-                $state.go('root.query');
+                $state.go('root.confirm');
             }
         }).catch(function (error) {
             alert("Authentication failed:", error);
@@ -47,7 +47,7 @@ angular.module('NodeTechApp')
                         zip: $scope.zip
                     }
                 }).then(function() {
-                    $state.go('root.query');
+                    $state.go('root.confirm');
                 });
             }
         }).catch(function (error) {
@@ -67,8 +67,6 @@ angular.module('NodeTechApp')
         });
     }
 
-    $scope.lat = undefined;
-    $scope.lng = undefined;
 
     $scope.$on('gmPlacesAutocomplete::placeChanged', function(){
         console.log($scope.autocomplete.getPlace().address_components);
@@ -87,7 +85,7 @@ angular.module('NodeTechApp')
             if (component.types[0] == 'administrative_area_level_1') {
                 $scope.state = component['long_name'];
             }
-            if (component.types[0] == 'postal_code_suffix') {
+            if (component.types[0] == 'postal_code') {
                 $scope.zip = component['long_name'];
             }
         }
