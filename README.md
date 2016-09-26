@@ -60,6 +60,9 @@ node helloworld
 
 ## Bugs
 ### ToFix
+ - setup reverse proxy
+ - point domain / subdomain to app
+ - configure / setup / deploy https / ssl / tls
  - autocomplete required needs angular filter
  - remove console.log stuff
 ### Styling
