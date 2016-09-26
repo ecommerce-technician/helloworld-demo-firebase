@@ -9,8 +9,8 @@ apt-get install npm
 
 ## Starting
 ```
-git clone https://github.com/ecommerce-technician/helloworld-demo-firebase
-cd helloworld-demo
+git clone https://github.com/ecommerce-technician/helloworld-demo-firebase helloworld
+cd helloworld
 npm install
 bower install
 node helloworld
