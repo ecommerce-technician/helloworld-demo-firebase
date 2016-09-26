@@ -66,6 +66,7 @@ node helloworld
  - configure / setup / deploy https / ssl / tls
  - autocomplete required needs angular filter
  - remove console.log stuff
+ - set database rules to deny localhost / only allow qualified domains (production)
  
 ### Styling
  - Header menu logic could use some work
