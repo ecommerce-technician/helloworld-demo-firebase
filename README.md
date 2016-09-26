@@ -9,6 +9,7 @@ apt-get install npm
 ```
 
 ## Starting
+```
 git clone https://github.com/ecommerce-technician/helloworld-demo-firebase helloworld
 cd helloworld
 npm install
@@ -16,7 +17,7 @@ bower install
 node helloworld
 ```
 
-### [starts on localhost:7777](localhost:7777)
+### [starts on localhost:3100](localhost:3100)
 
 ## Required Pages
  - ./login
