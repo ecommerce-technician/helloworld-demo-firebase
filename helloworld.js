@@ -5,6 +5,7 @@ var compression = require('compression'),
     app = express(),
     bunyan = require('bunyan'),
     firebase = require("firebase"),
+    cookieParser = require('cookie-parser'),
     log = bunyan.createLogger({name: "nodetech-dev"}),
     router = express.Router();
 
@@ -20,23 +21,57 @@ var db = firebase.database(),
     admins = [];
 
 ref.on("child_added", function(snapshot) {
-    users.push(snapshot.key);
+    users.push(snapshot.val());
     if (snapshot.val().admin == true) admins.push(snapshot.key);
 });
 
 app
     .use(compression())
-    .post('/api/v1/users/:token', function(req, res) {
-        var token = req.params.token;
-        if(token){
-            ref.on("value", function (snapshot) {
-                res.send(snapshot.val());
-            })
+    .use(cookieParser())
+    .get('/api/v1/users', function(req, res) {
+        var token = req.cookies.tk;
+        if (token){
+            console.log(admins);
+            firebase.auth().verifyIdToken(token).then(function(decodedToken) {
+                if(admins.indexOf(decodedToken.user_id != -1) ){
+                    res.json(users);
+                }
+            }).catch(function(error) {
+                res.json({"error" : error});
+                log.info(error);
+            });
+        } else {
+            res.json({"admin" : false});
+        }
+    })
+    .get('/api/v1/user', function(req, res) {
+        var token = req.cookies.tk;
+        if (token){
+            firebase.auth().verifyIdToken(token).then(function(decodedToken) {
+                if(admins.indexOf(decodedToken.user_id) > -1){
+                    res.json({
+                        uid : decodedToken.user_id,
+                        email: decodedToken.email,
+                        admin : true
+                    });
+                } else {
+                    res.json({
+                        uid : decodedToken.user_id,
+                        email: decodedToken.email,
+                        admin : false
+                    });
+                }
+            }).catch(function(error) {
+                res.json(error);
+                log.info(error);
+            });
+        } else {
+            res.json({"admin" : false});
         }
     })
     .use(express.static(path.join(__dirname, 'public')))
     .use(function(req, res) {
-        res.sendfile(__dirname + '/public/index.html');
+        res.sendFile('index.html', { root: path.join(__dirname, 'public') });
     })
     .use(function(req, res, next) {
         var err = new Error('Not Found');

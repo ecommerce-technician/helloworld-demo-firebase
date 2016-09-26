@@ -3,9 +3,9 @@
  */
 angular.module('NodeTechApp')
 .controller('RootController', function($scope, $state, $firebaseAuth, $cookies){
+    var auth = $firebaseAuth();
     $scope.$state = $state;
 
-    var auth = $firebaseAuth();
     //console.log(auth);
 
     $scope.signOut = function () {

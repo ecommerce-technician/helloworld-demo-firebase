@@ -1,9 +1,15 @@
 angular.module('NodeTechApp')
-    .factory("User", function ($http, $cookies) {
+    .factory("Users", function ($http) {
         usersObj = {};
         usersObj.getUsers = function() {
-            var token = $cookies.get('tk');
-            return $http.get('/api/v1/alchemy/search/' + token)
+            return $http.get('/api/v1/users')
         }
         return usersObj;
+    })
+    .factory("User", function ($http) {
+        userObj = {};
+        userObj.getLoggedIn = function() {
+            return $http.get('/api/v1/user')
+        }
+        return userObj;
     })

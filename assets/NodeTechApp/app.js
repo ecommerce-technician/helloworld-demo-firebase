@@ -62,8 +62,13 @@ angular.module('NodeTechApp', ['ui.router', 'ngCookies','ngResource','ngMessages
         $mdIconProvider
             .iconSet('device', 'img/icons/sets/device-icons.svg', 24);
     })
-    .run(function ($rootScope, $state, $cookies) {
+    .run(function ($rootScope, $state, $cookies, User) {
         "use strict";
+
+        $rootScope.user = {
+            admin : false,
+            email: ""
+        };
 
         // Initialize Firebase
         var config = {
@@ -81,12 +86,29 @@ angular.module('NodeTechApp', ['ui.router', 'ngCookies','ngResource','ngMessages
                     $cookies.put('tk', data);
                 });
             } else {
+                $rootScope.user.admin = "";
                 $cookies.remove('tk');
             }
         });
 
         $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-
+            User.getLoggedIn().success(function (data) {
+                console.log(data);
+                $rootScope.user.email = data.email;
+                if(data.admin && data.admin == true) {
+                    $rootScope.user.admin = true;
+                }
+                if (!toState.authenticate && !toState.admin) {
+                    console.log("public");
+                } else if (toState.authenticate && data.uid){
+                    console.log("authenticated");
+                } else if (toState.admin && data.uid && data.admin){
+                    console.log("admin: " + data.admin);
+                } else {
+                    $state.go("root.login");
+                    console.log("investigate");
+                }
+            });
         });
 
         $rootScope.$on('$stateChangeSuccess', function (toState, toParams, fromState, fromParams) {

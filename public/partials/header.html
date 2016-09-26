@@ -1,10 +1,15 @@
-<md-button hide show-gt-xs>
-    <span style="color: rgb(12,129,72);">Hello:</span><span style="color: rgb(255, 215, 0);">World</span>
+<md-button ui-sref="root.home">
+    Helloworld
 </md-button>
-<span ng-hide="$state.includes('root.confirm')" layout="row">
-    <md-button class="md-primary md-hue-3" ui-sref="root.admin">admin</md-button>
+<span ng-show="$state.includes('root.home')" layout="row">
     <md-button class="md-primary md-hue-2" style="color: rgb(12,129,72);" ui-sref="root.signup">signup</md-button>
     <md-button class="md-raised md-primary md-hue-2" ui-sref="root.login">login</md-button>
+</span>
+<span ng-show="$state.includes('root.login')" layout="row">
+    <md-button class="md-primary md-hue-2" style="color: rgb(12,129,72);" ui-sref="root.signup">signup</md-button>
+</span>
+<span ng-show="$state.includes('root.signup')" layout="row">
+    <md-button class="md-primary md-hue-2" style="color: rgb(12,129,72);" ui-sref="root.login">login</md-button>
 </span>
 <span ng-show="$state.includes('root.confirm')">
     <md-button class="md-primary md-hue-2" ng-click="signOut()">sign out</md-button>
@@ -12,3 +17,8 @@
 <span ng-show="$state.includes('root.admin')">
     <md-button class="md-primary md-hue-2" ng-click="signOut()">sign out</md-button>
 </span>
+<span ng-show="user.admin" ng-hide="$state.includes('root.admin')">
+    <md-button ui-sref="root.admin">admin</md-button>
+</span>
+<span>{{user.email}}</span>
+
