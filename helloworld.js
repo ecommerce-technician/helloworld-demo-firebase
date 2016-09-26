@@ -10,7 +10,7 @@ var compression = require('compression'),
     router = express.Router();
 
 firebase.initializeApp({
-    serviceAccount: "helloworld-7856b4808c4b.json",
+    serviceAccount: "config/helloworld-7856b4808c4b.json",
     databaseURL: "https://helloworld-99886.firebaseio.com/"
 });
 
