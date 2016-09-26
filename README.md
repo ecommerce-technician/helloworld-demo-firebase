@@ -2,15 +2,15 @@
 This app allows a user to create an account, see a confirmation page, allows a user to request admin access, and manage users if their request for admin access is approved.
 
 ## Development Dependencies
-```
+
 nodejs > 0.10
+```
 apt-get install npm
 ```
 
 ## Starting
-```
-git clone https://github.com/ecommerce-technician/helloworld-demo-firebase
-cd helloworld-demo
+git clone https://github.com/ecommerce-technician/helloworld-demo-firebase helloworld
+cd helloworld
 npm install
 bower install
 node helloworld
@@ -62,9 +62,20 @@ node helloworld
 ### ToFix
  - autocomplete required needs angular filter
  - remove console.log stuff
+
+### Critical
+ - setup reverse proxy
+ - more detailed error messages
+ - point domain / subdomain to app
+ - configure / setup / deploy https / ssl / tls
+ - autocomplete required needs angular filter
+ - remove console.log stuff
+ - set database rules to deny localhost / only allow qualified domains (production)
+ 
 ### Styling
  - Header menu logic could use some work
  - Refactor auth & app alerts to ng-messages
  - Refactor table to google charts table
+
 ### Errors
  - Aria label warnings
