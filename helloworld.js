@@ -80,10 +80,10 @@ app
     });
 
 http
-    .createServer( app ).listen( 7777 )
+    .createServer( app ).listen( 3100 )
         .on( 'error', function( error ){
             log.info( "Error: \n" + error.message );
             log.info( error.stack );
         });
 
-log.info("Proudly serving some nodetech on Port 3100");
+log.info("Proudly serving some helloworld on Port 3100");
