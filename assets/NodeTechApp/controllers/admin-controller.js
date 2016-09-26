@@ -4,7 +4,7 @@
 angular.module('NodeTechApp')
     .controller('AdminController', function($scope, $state, Users){
         $scope.data = {};
-        $scope.data.users = {};
+        $scope.data.users = [];
         Users.getUsers().success(function (data) {
             if(data.admin == false) {
                 $state.go('root.confirm');

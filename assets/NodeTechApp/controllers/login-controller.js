@@ -31,6 +31,7 @@ angular.module('NodeTechApp')
     $scope.signUp = function () {
         // login with Email / Password
         auth.$createUserWithEmailAndPassword($scope.email, $scope.password).then(function (firebaseUser) {
+            var datetime = new Date().getTime();
             $scope.email = '';
             $scope.password = '';
             if(firebaseUser.uid) {
@@ -45,7 +46,8 @@ angular.module('NodeTechApp')
                         city: $scope.city,
                         state: $scope.state,
                         zip: $scope.zip
-                    }
+                    },
+                    datetime: datetime
                 }).then(function() {
                     $state.go('root.confirm');
                 });
