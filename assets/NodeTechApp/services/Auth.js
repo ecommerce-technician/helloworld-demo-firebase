@@ -1,11 +1,9 @@
-/**
- * Created by alex on 9/7/16.
- */
 angular.module('NodeTechApp')
-.factory('Auth', function($firebaseAuth){
-    var authFactory = {};
-
-    var auth = $firebaseAuth();
-
-    console.log(auth);
-})
+    .factory("User", function ($http, $cookies) {
+        usersObj = {};
+        usersObj.getUsers = function() {
+            var token = $cookies.get('tk');
+            return $http.get('/api/v1/alchemy/search/' + token)
+        }
+        return usersObj;
+    })

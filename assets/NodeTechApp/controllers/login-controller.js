@@ -66,9 +66,7 @@ angular.module('NodeTechApp')
             alert("reset failed:", error);
         });
     }
-
-    $scope.lat = undefined;
-    $scope.lng = undefined;
+    
 
     $scope.$on('gmPlacesAutocomplete::placeChanged', function(){
         console.log($scope.autocomplete.getPlace().address_components);

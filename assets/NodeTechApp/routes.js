@@ -47,11 +47,11 @@ angular.module('NodeTechApp')
             url: '/admin',
             views: {
                 'container@': {
-                    templateUrl: 'partials/login.html',
-                    controller: 'LoginController'
+                    templateUrl: 'partials/admin.html',
+                    controller: 'AdminController'
                 }
             },
-            authenticate: false
+            admin: true
         })
         .state('root.signup', {
             url: '/signup',
@@ -63,12 +63,12 @@ angular.module('NodeTechApp')
             },
             authenticate: false
         })
-        .state('root.query', {
-            url: '/query',
+        .state('root.confirm', {
+            url: '/confirm',
             views: {
                 'container@' : {
-                    templateUrl: 'partials/query.html',
-                    controller: 'QueryController'
+                    templateUrl: 'partials/confirm.html',
+                    controller: 'ConfirmController'
                 }
             },
             authenticate: true
