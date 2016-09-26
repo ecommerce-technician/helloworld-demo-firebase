@@ -8,6 +8,8 @@ angular.module('NodeTechApp')
     $scope.$state = $state;
 
     $scope.signIn = function () {
+        $scope.signInDisabled = true;
+
         // login with Email / Password
         auth.$signInWithEmailAndPassword($scope.email, $scope.password).then(function (firebaseUser) {
             $scope.email = '';
@@ -16,7 +18,7 @@ angular.module('NodeTechApp')
                 $state.go('root.confirm');
             }
         }).catch(function (error) {
-            alert("Authentication failed:", error);
+            alert("Authentication failed:", error.message);
         });
     }
 
@@ -29,6 +31,8 @@ angular.module('NodeTechApp')
     }
 
     $scope.signUp = function () {
+        $scope.signUpDisabled = true;
+
         // login with Email / Password
         auth.$createUserWithEmailAndPassword($scope.email, $scope.password).then(function (firebaseUser) {
             var datetime = new Date().getTime();
@@ -53,7 +57,7 @@ angular.module('NodeTechApp')
                 });
             }
         }).catch(function (error) {
-            alert("Authentication failed:", error);
+            alert("Authentication failed:", error.message);
         });
     }
 
@@ -65,7 +69,7 @@ angular.module('NodeTechApp')
             alert("reset sent!");
         }).catch(function (error) {
             console.log(error);
-            alert("reset failed:", error);
+            alert("reset failed:", error.message);
         });
     }
 

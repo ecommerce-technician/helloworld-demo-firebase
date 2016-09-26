@@ -103,7 +103,7 @@ gulp.task('head', function() {
 
 gulp.task('foot', function() {
     gulp.src([
-            './www/lib/angularjs-google-maps/dist/angularjs-google-maps.js',
+            './bower_components/angularjs-google-maps/dist/angularjs-google-maps.js',
             './assets/NodeTechApp/app.js',
             './assets/NodeTechApp/routes.js',
             './assets/NodeTechApp/services/*.js',
