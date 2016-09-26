@@ -62,6 +62,7 @@ node helloworld
 
 ### Critical
  - setup reverse proxy
+ - more detailed error messages
  - point domain / subdomain to app
  - configure / setup / deploy https / ssl / tls
  - autocomplete required needs angular filter
