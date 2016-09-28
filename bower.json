@@ -9,6 +9,7 @@
   "homepage": "https://github.com/ecommerce-technician/node.tech",
   "moduleType": [],
   "private": true,
+  "directory" : "bower_componenents",
   "ignore": [
     "**/.*",
     "node_modules",
