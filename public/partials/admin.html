@@ -11,11 +11,15 @@
                 <th>city</th>
                 <th>state</th>
                 <th>zip</th>
-                <th>datetime</th>
+                <th>
+                    <a href="" ng-click="sortReverse = !sortReverse">
+                        datetime
+                    </a>
+                </th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="user in data.users | orderBy: '-datetime' track by $index" ng-click="selectUser(user.email)">
+            <tr ng-repeat="user in data.users | orderBy:'-datetime':sortReverse" ng-click="selectUser(user.email)">
                 <td>{{user.first_name}}</td>
                 <td>{{user.last_name}}</td>
                 <td>{{user.email}}</td>
