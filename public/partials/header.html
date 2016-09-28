@@ -6,6 +6,7 @@
     <md-button ng-hide="user.email" class="md-primary md-hue-2" style="color: rgb(12,129,72);" ui-sref="root.signup">signup</md-button>
     <md-button ng-hide="user.email" class="md-raised md-primary md-hue-2" ui-sref="root.login">login</md-button>
     <md-button ng-show="user.admin" ui-sref="root.admin">admin</md-button>
+    <md-button ng-show="user.email" ui-sref="root.confirm">confirm page</md-button>
     <md-button ng-show="user.email" class="md-primary md-hue-2" ng-click="signOut()">sign out</md-button>
 </span>
 <span ng-show="$state.includes('root.login')" layout="row">

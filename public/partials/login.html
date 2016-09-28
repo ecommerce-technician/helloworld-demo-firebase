@@ -18,36 +18,34 @@
             </md-input-container>
         </div>
         <div flex ng-show="$state.includes('root.signup')">
-                <md-input-container>
-                    <label>First Name</label>
-                    <input class="md-headline" type="text" ng-model="first_name" required>
-                </md-input-container>
+            <md-input-container>
+                <label>First Name</label>
+                <input class="md-headline" type="text" ng-model="first_name" required>
+            </md-input-container>
         </div>
-    <div flex ng-show="$state.includes('root.signup')">
+        <div flex ng-show="$state.includes('root.signup')">
             <md-input-container>
                 <label>Last Name</label>
                 <input class="md-headline" type="text" ng-model="last_name" required>
             </md-input-container>
-    </div>
-    <div flex ng-show="$state.includes('root.signup')">
-        <md-input-container>
-            <label>address</label>
-            <input class="md-headline" type="text" gm-places-autocomplete ng-model="autocomplete" required>
-        </md-input-container>
-        <h3>Results:</h3>
-        <ul>
-            <li>Number: {{ streetNumber }}</li>
-            <li>Street: {{ street }}</li>
-            <li>City: {{ city }}</li>
-            <li>State: {{ state }}</li>
-            <li>Zip: {{ zip }}</li>
-        </ul>
-
-    </div>
-        <div flex layout-align="center center" class="md-display-2">
-            <md-button class="md-raised md-primary" ng-click="signIn()" ng-show="$state.includes('root.login')" ng-disabled="signInDisabled" style="display: block; width: 100%;">Sign In</md-button>
-            <md-button class="md-raised md-primary" ng-click="signUp()" ng-show="$state.includes('root.signup')" ng-disabled="signUpDisabled || loginform.$invalid" style="display: block; width: 100%;">Sign Up</md-button>
         </div>
+        <div flex ng-show="$state.includes('root.signup')">
+            <md-input-container>
+                <label>address</label>
+                <input class="md-headline" type="text" gm-places-autocomplete ng-model="autocomplete" required>
+            </md-input-container>
+            <h3>Results:</h3>
+            <ul>
+                <li>Number: {{ streetNumber }}</li>
+                <li>Street: {{ street }}</li>
+                <li>City: {{ city }}</li>
+                <li>State: {{ state }}</li>
+                <li>Zip: {{ zip }}</li>
+            </ul>
+
+        </div>
+        <md-button class="md-raised md-primary" ng-click="signIn()" ng-show="$state.includes('root.login')" ng-disabled="signInDisabled" style="display: block; width: 95%;">Sign In</md-button>
+        <md-button class="md-raised md-primary" ng-click="signUp()" ng-show="$state.includes('root.signup')" ng-disabled="signUpDisabled || loginform.$invalid" style="display: block; width: 95%;">Sign Up</md-button>
     </form>
     <div>
         <md-button ng-hide="$state.includes('root.signup')" class="md-primary md-hue-2" ng-click="reset()" >Reset Password</md-button>

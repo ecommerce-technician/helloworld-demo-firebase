@@ -11,6 +11,6 @@ angular.module('NodeTechApp')
     $scope.signOut = function () {
         auth.$signOut();
         $cookies.remove('tk');
-        $state.go('root.home');
+        window.location.replace('/');
     }
 })
