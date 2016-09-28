@@ -12,6 +12,10 @@ angular.module('NodeTechApp')
                 $scope.data.users = data;
             }
         });
+
+        //filters
+        $scope.sortReverse = false; // set the default sort type
+
         $scope.selectUser = function (email){
             alert(email + " selected");
         }
