@@ -19,6 +19,7 @@
 
 #admin tr:hover {
     background-color: lightblue;
+    cursor: pointer;
 }
 
 #admin tr:nth-child(even) {
