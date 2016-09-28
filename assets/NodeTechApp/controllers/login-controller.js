@@ -58,7 +58,7 @@ angular.module('NodeTechApp')
                 });
             }
         }).catch(function (error) {
-            $scope.signInDisabled = false;
+            $scope.signUpDisabled = false;
             alert("Authentication failed:", error.message);
         });
     }
