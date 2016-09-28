@@ -12,4 +12,7 @@ angular.module('NodeTechApp')
                 $scope.data.users = data;
             }
         });
+        $scope.selectUser = function (email){
+            alert(email + " selected");
+        }
     })

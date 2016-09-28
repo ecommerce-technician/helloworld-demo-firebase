@@ -1,16 +1,32 @@
-<div layout="row" layout-fill layout-padding layout-align="center center">
-    <table>
-        <tr ng-repeat="user in data.users | orderBy: '-datetime' track by $index">
-            <td>{{user.first_name}}</td>
-            <td>{{user.last_name}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.address.streetNumber}}</td>
-            <td>{{user.address.street}}</td>
-            <td>{{user.address.city}}</td>
-            <td>{{user.address.state}}</td>
-            <td>{{user.address.zip}}</td>
-            <td>{{user.datetime | date:'medium' }}</td>
-        </tr>
-    </table>
+<div id="admin" layout="row" layout-fill layout-padding layout-align="center center">
+    <div style="overflow-x:auto;">
+        <table>
+            <thead>
+            <tr>
+                <th>first</th>
+                <th>last</th>
+                <th>email</th>
+                <th>number</th>
+                <th>street</th>
+                <th>city</th>
+                <th>state</th>
+                <th>zip</th>
+                <th>datetime</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in data.users | orderBy: '-datetime' track by $index" ng-click="selectUser(user.email)">
+                <td>{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.address.streetNumber}}</td>
+                <td>{{user.address.street}}</td>
+                <td>{{user.address.city}}</td>
+                <td>{{user.address.state}}</td>
+                <td>{{user.address.zip}}</td>
+                <td>{{user.datetime | date:'medium' }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-
