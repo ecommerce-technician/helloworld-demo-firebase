@@ -31,8 +31,7 @@
         </div>
         <div flex ng-show="$state.includes('root.signup')">
             <md-input-container>
-                <label>address</label>
-                <input class="md-headline" type="text" gm-places-autocomplete ng-model="autocomplete" required>
+                <input aria-label="input address" class="md-headline" type="text" gm-places-autocomplete ng-model="autocomplete" autocomplete="false" required>
             </md-input-container>
             <h3>Results:</h3>
             <ul>
