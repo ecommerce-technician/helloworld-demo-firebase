@@ -1,10 +1,4 @@
-var express = require('express'),
-    router = express.Router(),
-    compression = require('compression'),
-    path = require('path'),
-    bunyan = require('bunyan'),
-    log = bunyan.createLogger({name: "nodetech-dev"});
-
+var router = express.Router();
 
 // middleware that is specific to this router
 router
@@ -12,7 +6,7 @@ router
 
     //auth
     .use(function timeLog(req, res, next) {
-        log.info("Proudly serving some helloworld on Port 3100");
+        log.info({port: "3100"});
         next();
     })
 

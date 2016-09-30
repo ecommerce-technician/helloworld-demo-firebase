@@ -70,7 +70,6 @@ angular.module('NodeTechApp')
         auth.$sendPasswordResetEmail($scope.data.email).then(function () {
             alert("reset sent!");
         }).catch(function (error) {
-            console.log(error);
             alert("reset failed:", error.message);
         });
     }
