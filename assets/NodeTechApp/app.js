@@ -93,7 +93,6 @@ angular.module('NodeTechApp', ['ui.router', 'ngCookies','ngResource','ngMessages
 
         $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
             User.getLoggedIn().success(function (data) {
-                console.log(data);
                 $rootScope.user.email = data.email;
                 if(data.admin && data.admin == true) {
                     $rootScope.user.admin = true;
@@ -103,7 +102,7 @@ angular.module('NodeTechApp', ['ui.router', 'ngCookies','ngResource','ngMessages
                 } else if (toState.authenticate && data.uid){
                     console.log("authenticated");
                 } else if (toState.admin && data.uid && data.admin){
-                    console.log("admin: " + data.admin);
+                    console.log("admin");
                 } else {
                     $state.go("root.login");
                     console.log("investigate");
